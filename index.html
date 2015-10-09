@@ -74,17 +74,28 @@
 		function handleLamborghini () {
 			var truthOutput = document.getElementById("truthOutput"),
 				truthAmount = document.getElementById("truthAmount"),
-				truth = spitTruth(parseInt(truthAmount.value, 10) || 0);
+				randy = document.getElementById("randy").checked,
+				truth = spitTruth(parseInt(truthAmount.value, 10) || 0, randy);
 
 			truthOutput.value = truth;
 		}
 	</script>
+	<style>
+		@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css';
+		body, textarea {
+		    font-family: sans-serif;
+		}
+	</style>
 	<div>
 		<label>
-			No. of Sentences
-			<input id="truthAmount" type="number"/>
+			LAMBORGHINIS
+			<input style="width:40px" id="truthAmount" type="number"/>
 		</label>
-		<button onclick="handleLamborghini();">LAMBORGHINI</button>
+		<label>
+			RANDOM
+			<input id="randy" type="checkbox"/>
+		</label>
+		<button class="btn btn-sm btn-danger" onclick="handleLamborghini();">LAMBORGHINI</button>
 	</div>
-	<textarea style="width:100%;height:100%" id="truthOutput"></textarea>
+	<textarea style="width:100%;height:100%;border:none;" id="truthOutput"></textarea>
 </html>
